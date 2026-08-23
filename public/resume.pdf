@@ -1,0 +1,241 @@
+%PDF-1.4
+1 0 obj
+<<
+  /Type /Catalog
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages
+  /Kids [3 0 R 5 0 R]
+  /Count 2
+>>
+endobj
+3 0 obj
+<<
+  /Type /Page
+  /Parent 2 0 R
+  /MediaBox [0 0 595.28 841.89]
+  /Contents 4 0 R
+  /Resources <<
+    /Font <<
+      /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+      /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+      /F3 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+    >>
+  >>
+>>
+endobj
+4 0 obj
+<<
+  /Length 2150
+>>
+stream
+BT
+/F1 20 Tf
+50 790 Td
+(KARTHIKEYAN S) Tj
+/F1 11 Tf
+0 -18 Td
+(FULL STACK DEVELOPER) Tj
+/F2 9.5 Tf
+0 -16 Td
+(Trichy, Tamil Nadu | +91 87780 76919 | karthikeyancs10@gmail.com | linkedin.com/in/karthikeyanssd) Tj
+0 -22 Td
+/F1 11 Tf
+(PROFESSIONAL SUMMARY) Tj
+/F2 9 Tf
+0 -14 Td
+(Full Stack Developer with 1.8 years of experience building and maintaining production web applications using Python,) Tj
+0 -12 Td
+(Django, Django REST Framework, Vue.js, and Quasar Framework. Proven track record delivering 10+ RESTful APIs,) Tj
+0 -12 Td
+(optimizing MySQL and PostgreSQL database schemas, and resolving 30+ production bugs to improve system stability.) Tj
+0 -12 Td
+(Experienced in end-to-end feature delivery for a multi-module Property Management System covering tenant billing,) Tj
+0 -12 Td
+(security deposits, owner disbursements, task scheduling, and reserve fund management.) Tj
+0 -20 Td
+/F1 11 Tf
+(TECHNICAL SKILLS) Tj
+/F1 9 Tf
+0 -14 Td
+(Languages: ) Tj
+/F2 9 Tf
+70 0 Td
+(Python, JavaScript, Java, C++, C, HTML5, CSS3) Tj
+-70 -13 Td
+/F1 9 Tf
+(Backend & Frameworks: ) Tj
+/F2 9 Tf
+125 0 Td
+(Django, Django REST Framework (DRF), Django-Q, Spring Boot, RESTful API Design, JWT) Tj
+-125 -13 Td
+/F1 9 Tf
+(Frontend: ) Tj
+/F2 9 Tf
+55 0 Td
+(Vue.js 3, Quasar Framework, React.js, Responsive Web Design, Component-Based Architecture) Tj
+-55 -13 Td
+/F1 9 Tf
+(Databases: ) Tj
+/F2 9 Tf
+65 0 Td
+(MySQL, PostgreSQL, Database Schema Design, Query Optimization, Indexing) Tj
+-65 -13 Td
+/F1 9 Tf
+(Tools & Practices: ) Tj
+/F2 9 Tf
+95 0 Td
+(Git, GitHub, CI/CD, Agile/Scrum, Stripe Payment Integration, Postman, Debugging & RCA) Tj
+-95 -13 Td
+/F1 9 Tf
+(Other: ) Tj
+/F2 9 Tf
+40 0 Td
+(Task Scheduling (Django-Q/Cron), System Design, Cross-Functional Collaboration) Tj
+-40 -20 Td
+/F1 11 Tf
+(PROFESSIONAL EXPERIENCE) Tj
+/F1 9.5 Tf
+0 -15 Td
+(Full Stack Developer | InfiniTechX Technologies Pvt Ltd) Tj
+/F3 9 Tf
+350 0 Td
+(Feb 2025 - Present) Tj
+-350 -14 Td
+/F2 8.5 Tf
+(  * Delivered end-to-end features across a Django REST Framework backend and Vue.js 3 / Quasar frontend) Tj
+0 -11 Td
+(    for a production Property Management System, contributing to system reliability and on-time release cycles.) Tj
+0 -12 Td
+(  * Built and maintained 10+ RESTful APIs in Python and Django, reducing backend response latency by 25%.) Tj
+0 -12 Td
+(  * Developed responsive, reusable UI components in Vue.js & Quasar, improving frontend rendering by 20-30%.) Tj
+0 -12 Td
+(  * Designed and optimized MySQL and PostgreSQL schemas, improving query efficiency by up to 40%.) Tj
+0 -12 Td
+(  * Diagnosed and resolved critical payment-pipeline defects, restoring billing accuracy across the platform.) Tj
+0 -12 Td
+(  * Debugged and stabilized a Django-Q background task queue by resolving table case-sensitivity conflicts.) Tj
+0 -12 Td
+(  * Integrated Stripe payment processing for secure online transactions, reducing payment errors by 15%.) Tj
+0 -12 Td
+(  * Implemented JWT-based authentication, reducing unauthorized access risk by 90%.) Tj
+0 -12 Td
+(  * Identified and resolved 30+ bugs across frontend and backend modules, improving overall system stability.) Tj
+0 -12 Td
+(  * Deployed application updates to cloud platforms using Git-based CI/CD workflows, maintaining 99% uptime.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<<
+  /Type /Page
+  /Parent 2 0 R
+  /MediaBox [0 0 595.28 841.89]
+  /Contents 6 0 R
+  /Resources <<
+    /Font <<
+      /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+      /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+      /F3 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+    >>
+  >>
+>>
+endobj
+6 0 obj
+<<
+  /Length 1650
+>>
+stream
+BT
+/F1 11 Tf
+50 790 Td
+(KEY PROJECTS) Tj
+/F1 9.5 Tf
+0 -16 Td
+(Property Management System (PMS) - InfiniTechX Technologies Pvt Ltd) Tj
+/F3 8.5 Tf
+0 -12 Td
+(Python, Django, Django REST Framework, Vue.js 3, Quasar Framework, MySQL/PostgreSQL, Django-Q | Feb 2025 - Present) Tj
+/F2 8.5 Tf
+0 -13 Td
+(  * Architected full-stack property management platform automating tenant tracking, rent collection, and maintenance.) Tj
+0 -11 Td
+(  * Built tenant & lease management modules enabling 100% digital lease records, cutting manual paperwork by 80%.) Tj
+0 -11 Td
+(  * Developed rent tracking and financial reporting dashboards with data visualizations, cutting manual calculation by 50%.) Tj
+0 -11 Td
+(  * Designed security-deposit-first payment gate and disbursement summary UI in Vue.js/Quasar.) Tj
+0 -11 Td
+(  * Built maintenance request portal with real-time ticket status updates, increasing issue resolution speed by 30%.) Tj
+0 -18 Td
+/F1 9.5 Tf
+(Multi-Banking Secured System with Single Access - Softlogic Institute) Tj
+/F3 8.5 Tf
+0 -12 Td
+(HTML, CSS, JavaScript, Bootstrap, MySQL, Java | Mar 2024 - Present) Tj
+/F2 8.5 Tf
+0 -13 Td
+(  * Designed and developed a responsive multi-bank access portal allowing users to view accounts across banks.) Tj
+0 -11 Td
+(  * Implemented secure email-based password recovery and customization via backend APIs.) Tj
+0 -22 Td
+/F1 11 Tf
+(EDUCATION) Tj
+/F1 9 Tf
+0 -15 Td
+(M.Sc. Computer Science) Tj
+/F2 9 Tf
+120 0 Td
+(- Bishop Heber College, Trichy (77%)) Tj
+/F3 8.5 Tf
+200 0 Td
+(Jun 2021 - Jun 2023) Tj
+-320 -14 Td
+/F1 9 Tf
+(B.Sc. Computer Science) Tj
+/F2 9 Tf
+120 0 Td
+(- Bishop Heber College, Trichy (78%)) Tj
+/F3 8.5 Tf
+200 0 Td
+(Jun 2018 - Jun 2021) Tj
+-320 -22 Td
+/F1 11 Tf
+(CERTIFICATIONS) Tj
+/F2 8.5 Tf
+0 -14 Td
+(  * Java Full Stack Development - Softlogic Institute (Agile, HTML, CSS, Bootstrap, MySQL, Java) | Mar 2024 - Present) Tj
+0 -12 Td
+(  * Java Fundamentals - IBM Developer Skills Network / IBMCE | Jul 2024 - Present) Tj
+0 -22 Td
+/F1 11 Tf
+(HONORS & ACHIEVEMENTS) Tj
+/F2 8.5 Tf
+0 -14 Td
+(  * Secured Gold Medal in Athletics at the university-level meet.) Tj
+0 -12 Td
+(  * Secured Bronze Medal in Athletics at the state-level meet.) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000375 00000 n 
+0000002604 00000 n 
+0000002858 00000 n 
+trailer
+<<
+  /Size 7
+  /Root 1 0 R
+>>
+startxref
+4587
+%%EOF

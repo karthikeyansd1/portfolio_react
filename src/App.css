@@ -1,0 +1,10 @@
+.App {
+  text-align: left;
+  background: #02020a;
+  min-height: 100vh;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}

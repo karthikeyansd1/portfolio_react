@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import 'aos/dist/aos.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #02020a;
+  color: #e2e8f0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Spider-Man Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #03030c; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ef4444, #dc2626, #0284c7);
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+::selection { background: rgba(239, 68, 68, 0.35); color: #ffffff; }
+
+/* Fonts */
+.mono, code, pre { font-family: 'JetBrains Mono', monospace; }
+
+/* Spider-Man Code Colors */
+.code-keyword  { color: #f43f5e; }   /* Spider Red */
+.code-function { color: #38bdf8; }   /* Web Cyan */
+.code-string   { color: #34d399; }   /* Emerald */
+.code-comment  { color: #64748b; }   /* Slate */
+.code-number   { color: #fbbf24; }   /* Spider Gold */
+.code-var      { color: #e2e8f0; }   /* Web White */
+
+/* Spider-Verse Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #ef4444 0%, #f43f5e 40%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass */
+.glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(239,68,68,0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Spider-Man Section Divider */
+.section-divider {
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(239,68,68,0.5), rgba(14,165,233,0.5), transparent);
+}
+
+/* Terminal */
+.terminal {
+  background: rgba(6,6,18,0.92);
+  border: 1px solid rgba(239,68,68,0.22);
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(239,68,68,0.08);
+}
+.terminal-header {
+  background: rgba(18,18,34,0.85);
+  border-bottom: 1px solid rgba(239,68,68,0.15);
+  border-radius: 14px 14px 0 0;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 32s linear infinite; }
+
+/* Ping */
+@keyframes ping {
+  75%,100% { transform: scale(2.2); opacity: 0; }
+}
+.animate-ping { animation: ping 1.4s cubic-bezier(0,0,0.2,1) infinite; }
+
+/* Spider Web Overlay Pattern */
+.spider-web-bg {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+}
+
+/* Skill bar */
+.skill-bar { height: 4px; border-radius: 999px; background: rgba(255,255,255,0.06); overflow: hidden; }
+.skill-bar-fill { height: 100%; border-radius: 999px; transform-origin: left; }
+
+/* Spider Glitch Hover */
+.spider-glitch:hover {
+  text-shadow: 2px 0 #ef4444, -2px 0 #38bdf8;
+}
