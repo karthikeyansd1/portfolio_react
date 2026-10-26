@@ -619,7 +619,7 @@ const Hero = () => {
                 className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-xl font-normal"
               >
                 Full Stack Developer with{' '}
-                <span className="text-white font-semibold">1.8+ years of production experience</span> building enterprise applications using{' '}
+                <span className="text-white font-semibold">1.7+ years of production experience</span> building enterprise applications using{' '}
                 <span className="text-indigo-400 font-semibold">Python, Django, DRF, Vue.js 3, and Quasar</span>. Shipped 10+ RESTful APIs, optimized database schemas for 40% faster queries, and resolved 30+ mission-critical issues.
               </motion.p>
 
@@ -694,7 +694,7 @@ const Hero = () => {
 
               {/* Bento Stats */}
               <div className="grid grid-cols-2 gap-3 w-full max-w-[340px] sm:max-w-[380px] mx-auto">
-                <StatCard val="1.8" suffix="+" label="Years Exp." accent="#3b82f6" delay={0.9} />
+                <StatCard val="1.7" suffix="+" label="Years Exp." accent="#3b82f6" delay={0.9} />
                 <StatCard val="10" suffix="+" label="REST APIs" accent="#8b5cf6" delay={1.0} />
                 <StatCard val="30" suffix="+" label="Issues Solved" accent="#10b981" delay={1.1} />
                 <StatCard val="99.9" suffix="%" label="Reliability" accent="#f59e0b" delay={1.2} />

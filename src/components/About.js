@@ -96,10 +96,14 @@ const About = () => {
   "developer": "Karthikeyan S",
   "role": "Full Stack Developer",
   "location": "Tiruchirappalli, Tamil Nadu, India",
-  "experience": "1.8+ Years (Production)",
+  "experience": "1.7+ Years (Production)",
   "education": [
-    "M.Sc. Computer Science (77%)",
-    "B.Sc. Computer Science (78%)"
+    "M.Sc. Computer Science (77%) - Bishop Heber College",
+    "B.Sc. Computer Science (78%) - Bishop Heber College"
+  ],
+  "certifications": [
+    "Java Full Stack - Softlogic Institute",
+    "Java Fundamentals - IBM Developer Skills Network"
   ],
   "athletics": "University Gold Medalist & State Bronze Medalist",
   "specialties": [
@@ -111,7 +115,8 @@ const About = () => {
   "contact": {
     "phone": "+91 87780 76919",
     "email": "karthikeyancs10@gmail.com",
-    "linkedin": "linkedin.com/in/karthikeyanssd"
+    "linkedin": "linkedin.com/in/karthikeyanssd",
+    "portfolio": "https://portfoliosk-react.vercel.app/"
   },
   "status": "Available for Full-Time Roles"
 }`;
@@ -164,7 +169,7 @@ const About = () => {
               transition={{ delay: 0.1, duration: 0.7 }}
               className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal"
             >
-              I am a dedicated <span className="text-white font-semibold">Full Stack Developer</span> with 1.8+ years of production experience crafting performant web platforms. My core stack centers on <span className="text-indigo-400 font-medium">Python, Django, Django REST Framework, Vue.js 3, Quasar, and PostgreSQL</span>, bridging clean backend architecture with intuitive, responsive user experiences.
+              I am a dedicated <span className="text-white font-semibold">Full Stack Developer</span> with 1.7+ years of production experience crafting performant web platforms. My core stack centers on <span className="text-indigo-400 font-medium">Python, Django, Django REST Framework, Vue.js 3, Quasar, and PostgreSQL</span>, bridging clean backend architecture with intuitive, responsive user experiences.
             </motion.p>
 
             <motion.p
@@ -187,7 +192,7 @@ const About = () => {
                 <FaGraduationCap className="text-indigo-400 text-lg flex-shrink-0 mt-0.5" />
                 <div>
                   <h5 className="text-white text-xs font-bold">M.Sc. & B.Sc. Computer Science</h5>
-                  <p className="mono text-[11px] text-slate-400 mt-0.5">Top Tier Academic Merit (77% & 78%)</p>
+                  <p className="mono text-[11px] text-slate-400 mt-0.5">Bishop Heber College, Trichy (77% & 78%)</p>
                 </div>
               </div>
 
