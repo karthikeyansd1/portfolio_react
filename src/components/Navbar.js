@@ -1,126 +1,165 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { FaFileDownload, FaArrowRight } from 'react-icons/fa';
 
-const navItems = ['Home', 'About', 'Experience', 'Projects', 'Skills', 'Contact'];
+const navItems = [
+  { label: 'Overview', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#contact' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState('Overview');
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
+    const fn = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
   return (
     <motion.nav
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -70, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
-      {/* Pill navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-4 sm:pt-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-3 sm:pt-4">
         <motion.div
-          className="flex justify-between items-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl transition-all duration-500"
           animate={
             scrolled
               ? {
-                  background: 'rgba(5,5,15,0.92)',
-                  backdropFilter: 'blur(24px)',
-                  borderColor: 'rgba(239,68,68,0.3)',
-                  boxShadow: '0 4px 40px rgba(0,0,0,0.7), 0 0 20px rgba(239,68,68,0.12)',
+                  background: 'rgba(7, 9, 14, 0.82)',
+                  backdropFilter: 'blur(20px)',
+                  borderColor: 'rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
                 }
               : {
-                  background: 'rgba(5,5,15,0.4)',
+                  background: 'rgba(13, 17, 26, 0.5)',
                   backdropFilter: 'blur(12px)',
-                  borderColor: 'rgba(239,68,68,0.15)',
-                  boxShadow: 'none',
+                  borderColor: 'rgba(255, 255, 255, 0.06)',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
                 }
           }
-          style={{ border: '1px solid transparent' }}
+          className="flex justify-between items-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl border transition-all duration-300"
         >
-          {/* Logo */}
+          {/* Brand Logo */}
           <motion.a
             href="#home"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             data-cursor="button"
-            className="flex items-center gap-2.5 cursor-pointer"
+            data-cursor-text="HOME"
+            className="flex items-center gap-2.5 cursor-pointer group"
           >
-            {/* Spider Logo mark */}
             <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black text-white shadow-lg shadow-red-500/25"
-              style={{ background: 'linear-gradient(135deg,#ef4444,#dc2626)' }}
+              className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black text-white shadow-md shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-shadow"
+              style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%)' }}
             >
-              🕷️
+              KS
             </div>
-            <span className="text-sm font-bold text-slate-200 tracking-wide mono">
-              karthikeyan<span className="text-red-400">.spidey</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-slate-100 tracking-tight group-hover:text-white transition-colors">
+                Karthikeyan <span className="text-indigo-400 font-mono text-xs">.dev</span>
+              </span>
+              <span className="text-[10px] text-slate-400 font-medium tracking-wide hidden sm:block">
+                Full Stack Developer
+              </span>
+            </div>
           </motion.a>
 
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item, i) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.08 * i, duration: 0.5 }}
-                whileHover={{ color: '#fff', scale: 1.05 }}
-                data-cursor="hover"
-                data-cursor-text={item.toUpperCase()}
-                className="relative px-4 py-2 text-sm text-slate-300 hover:text-red-300 font-medium transition-colors duration-200 rounded-xl group cursor-pointer"
-              >
-                {item}
-                {/* Spider-Man underline */}
-                <motion.span
-                  className="absolute bottom-1.5 left-1/2 -translate-x-1/2 h-px rounded-full"
-                  style={{ background: 'linear-gradient(90deg,#ef4444,#38bdf8)' }}
-                  initial={{ width: 0 }}
-                  whileHover={{ width: '60%' }}
-                  transition={{ duration: 0.25 }}
-                />
-              </motion.a>
-            ))}
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 rounded-xl border border-white/[0.05]">
+            {navItems.map((item) => {
+              const isCurrent = activeItem === item.label;
+              return (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setActiveItem(item.label)}
+                  whileHover={{ color: '#ffffff' }}
+                  data-cursor="hover"
+                  data-cursor-text={item.label.toUpperCase()}
+                  className={`relative px-3.5 py-1.5 text-xs font-medium transition-colors duration-200 rounded-lg cursor-pointer ${
+                    isCurrent ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {isCurrent && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className="absolute inset-0 bg-white/[0.08] rounded-lg border border-white/[0.08]"
+                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
+                </motion.a>
+              );
+            })}
           </div>
 
-          {/* Hire Spidey + hamburger */}
-          <div className="flex items-center gap-3">
+          {/* Right Action Buttons */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Resume Button */}
             <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.06, boxShadow: '0 0 35px rgba(239,68,68,0.7), 0 0 15px rgba(14,165,233,0.4)' }}
-              whileTap={{ scale: 0.95 }}
+              href="/resume.pdf"
+              download="Karthikeyan_S_Resume.pdf"
+              whileHover={{ scale: 1.04, borderColor: 'rgba(99, 102, 241, 0.4)' }}
+              whileTap={{ scale: 0.96 }}
               data-cursor="button"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white shadow-md cursor-pointer"
-              style={{ background: 'linear-gradient(135deg,#ef4444,#dc2626)' }}
+              data-cursor-text="RESUME"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-white/[0.04] border border-white/[0.08] transition-all cursor-pointer"
             >
-              Hire Spidey 🕸️
+              <FaFileDownload size={11} className="text-indigo-400" />
+              <span>Resume</span>
             </motion.a>
 
-            {/* Mobile hamburger */}
+            {/* Contact / Hire CTA */}
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.04, boxShadow: '0 0 25px rgba(99, 102, 241, 0.45)' }}
+              whileTap={{ scale: 0.96 }}
+              data-cursor="button"
+              data-cursor-text="TALK"
+              className="inline-flex items-center gap-1.5 px-4 sm:px-4.5 py-2 rounded-xl text-xs font-bold text-white shadow-md cursor-pointer transition-all"
+              style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)' }}
+            >
+              <span>Get in Touch</span>
+              <FaArrowRight size={10} className="hidden sm:inline-block" />
+            </motion.a>
+
+            {/* Mobile Hamburger Button */}
             <motion.button
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.92 }}
               onClick={() => setIsOpen(!isOpen)}
               data-cursor="button"
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl text-slate-300 hover:text-white transition-colors"
-              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(239,68,68,0.2)' }}
+              className="md:hidden w-9 h-9 flex items-center justify-center rounded-xl text-slate-300 hover:text-white transition-colors bg-white/[0.05] border border-white/[0.08]"
+              aria-label="Toggle Navigation Menu"
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
-                  <motion.span key="x"
-                    initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                    <HiX size={18} className="text-red-400" />
+                  <motion.span
+                    key="x"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <HiX size={18} className="text-indigo-400" />
                   </motion.span>
                 ) : (
-                  <motion.span key="m"
-                    initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <motion.span
+                    key="m"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     <HiMenu size={18} />
                   </motion.span>
                 )}
@@ -129,43 +168,41 @@ const Navbar = () => {
           </div>
         </motion.div>
 
-        {/* Mobile dropdown */}
+        {/* Mobile Dropdown Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -12, scale: 0.97 }}
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -12, scale: 0.97 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-2 mx-1 rounded-2xl p-3 space-y-1"
-              style={{
-                background: 'rgba(5,5,15,0.96)',
-                backdropFilter: 'blur(24px)',
-                border: '1px solid rgba(239,68,68,0.25)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.7)',
-              }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-2 rounded-2xl p-3 space-y-1 bg-[#090d15]/95 border border-white/10 backdrop-blur-2xl shadow-2xl"
             >
               {navItems.map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setIsOpen(false)}
-                  data-cursor="hover"
-                  className="block px-4 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                  className="block px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.05] rounded-xl transition-all"
                 >
-                  <span className="text-red-400 mr-2">🕸️</span>
-                  {item}
+                  {item.label}
                 </a>
               ))}
-              <div className="pt-2">
+              <div className="pt-2 border-t border-white/[0.08] flex gap-2">
+                <a
+                  href="/resume.pdf"
+                  download="Karthikeyan_S_Resume.pdf"
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 text-center py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-white/[0.06] border border-white/10"
+                >
+                  Resume
+                </a>
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
-                  data-cursor="button"
-                  className="block text-center w-full py-2.5 rounded-xl text-sm font-bold text-white shadow-md"
-                  style={{ background: 'linear-gradient(135deg,#ef4444,#dc2626)' }}
+                  className="flex-1 text-center py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600"
                 >
-                  Hire Spidey 🕸️
+                  Contact
                 </a>
               </div>
             </motion.div>

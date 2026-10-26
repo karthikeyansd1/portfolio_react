@@ -1,143 +1,71 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaRocket, FaCode, FaCheckCircle } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaRocket, FaCode, FaCheckCircle, FaLaptopCode } from 'react-icons/fa';
 
 const projects = [
   {
     id: 1,
     title: 'Property Management System (PMS)',
     company: 'InfiniTechX Technologies Pvt Ltd',
-    description: 'Production full-stack platform automating property operations — tenant billing, security deposits, owner disbursements, and reserve fund calculations.',
+    description: 'Enterprise full-stack SaaS platform automating property management lifecycle — tenant rent collections, security deposit handling, owner disbursements, and reserve funds.',
     technologies: ['Python', 'Django', 'DRF', 'Vue.js 3', 'Quasar', 'PostgreSQL', 'Django-Q', 'Stripe'],
-    category: 'fullstack',
+    category: 'saas',
     github: 'https://github.com/karthikeyanssd',
     live: 'https://demo-property.example.com',
-    accent: '#818cf8',
+    accent: '#3b82f6',
     stats: '60% Faster Ops',
     features: [
-      'Automated tenant tracking, rent collection & lease records (80% less paperwork)',
-      'Built financial reporting & reserve fund dashboards cutting calculation time by 50%',
-      'Designed security-deposit-first payment gate with Stripe payment integration',
-      'Real-time maintenance ticket dispatcher increasing resolution speed by 30%'
+      'Automated tenant tracking, recurring rent collection & digital lease records',
+      'Dynamic financial reporting and reserve fund dashboards cutting calculation time by 50%',
+      'Integrated Stripe payment processing with security-deposit-first architecture',
+      'Asynchronous task scheduling via Django-Q worker queues for report generation',
     ],
   },
   {
     id: 2,
     title: 'Multi-Banking Secured System',
     company: 'Softlogic Institute',
-    description: 'Responsive multi-bank access portal allowing users to securely view and manage accounts across banks through a single authentication gateway.',
-    technologies: ['Java', 'JavaScript', 'Bootstrap', 'MySQL', 'HTML5/CSS3', 'REST API'],
-    category: 'fullstack',
+    description: 'Consolidated banking gateway enabling customers to securely monitor and manage accounts across multiple financial institutions through single-sign-on (SSO).',
+    technologies: ['Java', 'JavaScript', 'Bootstrap', 'MySQL', 'REST API', 'HTML5/CSS3'],
+    category: 'enterprise',
     github: 'https://github.com/karthikeyanssd',
     live: 'https://demo-banking.example.com',
-    accent: '#c084fc',
-    stats: 'Single Access SSO',
+    accent: '#8b5cf6',
+    stats: 'Single-Access SSO',
     features: [
-      'Unified multi-bank access dashboard allowing cross-account monitoring',
-      'Implemented secure email-based password recovery and customization APIs',
-      'Admin-monitored banking operations with role-based authorization',
-      '100% responsive UI with streamlined user authentication'
+      'Unified multi-bank access dashboard allowing cross-account monitoring in real-time',
+      'Cryptographic email-based token recovery and session timeout protocols',
+      'Admin portal with granular role-based access control (RBAC) and audit trails',
+      'Responsive interface ensuring high-speed client interactions and low memory footprint',
     ],
   },
   {
     id: 3,
-    title: 'Athletic Tournament Platform',
+    title: 'Athletic Tournament & Scoring Platform',
     company: 'University & State Meet',
-    description: 'Athletic registration & tournament management portal for tracking participant records, timings, and university sports event standings.',
+    description: 'Athletic event management system automating athlete registration, heat generation, live sprint timing recording, and real-time tournament leaderboards.',
     technologies: ['Python', 'Django', 'JavaScript', 'PostgreSQL', 'HTML5/CSS3'],
     category: 'fullstack',
     github: 'https://github.com/karthikeyanssd',
     live: 'https://demo-athletic.example.com',
-    accent: '#f472b6',
-    stats: 'Sports & Medals',
+    accent: '#10b981',
+    stats: 'Automated Heat Seeding',
     features: [
-      'Dynamic participant registration engine with automated heat generation',
-      'Real-time score & sprint timing recording system with live leaderboard',
-      'Exportable certificates and tournament analytics dashboard',
-      'Built by university Gold Medalist & state Bronze Medalist athlete'
+      'Automated competitor seeding and heat assignment algorithms based on entry times',
+      'Sub-second sprint timing capture with live scoreboard updates for spectators',
+      'Instant certificate generation and tournament analytics export (PDF/CSV)',
+      'Designed and tested by a University Gold Medalist & State Bronze Medalist athlete',
     ],
   },
 ];
 
 const filters = [
   { key: 'all', label: 'All Projects', icon: FaRocket },
-  { key: 'fullstack', label: 'Full Stack', icon: FaCode },
+  { key: 'saas', label: 'Enterprise SaaS', icon: FaLaptopCode },
+  { key: 'fullstack', label: 'Full Stack Systems', icon: FaCode },
 ];
 
-/* ═══════════════════════════════════════════════════════════
-   SPIDER-MAN ACTION 3: WEB-SWINGING & FLYING (PROJECTS SECTION)
-═══════════════════════════════════════════════════════════ */
-const SpiderManWebFlyer = ({ inView }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -140, y: -40, rotate: -25 }}
-      animate={inView ? { opacity: 1, x: 0, y: 0, rotate: 0 } : { opacity: 0, x: -140, y: -40, rotate: -25 }}
-      transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-      className="hidden md:flex absolute left-8 lg:left-24 top-16 z-20 items-center pointer-events-none"
-    >
-      <motion.div
-        animate={{
-          y: [0, -12, 0],
-          rotate: [-6, 8, -6],
-        }}
-        transition={{
-          duration: 3.5,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="relative flex items-center"
-      >
-        {/* Curved Web Shooting Strand */}
-        <svg width="180" height="70" viewBox="0 0 180 70" className="overflow-visible absolute -left-36 -top-8 pointer-events-none">
-          <path
-            d="M 0 0 Q 90 25 180 50"
-            stroke="url(#webGrad)"
-            strokeWidth="2.5"
-            fill="none"
-            className="drop-shadow-[0_0_8px_#38bdf8]"
-          />
-          <defs>
-            <linearGradient id="webGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        {/* Dynamic Flying Spidey Figure */}
-        <svg width="78" height="65" viewBox="0 0 120 100" className="drop-shadow-[0_0_25px_rgba(239,68,68,0.85)]">
-          {/* Extended Shooting Arm */}
-          <path d="M 50 45 L 15 20" stroke="#dc2626" strokeWidth="5.5" strokeLinecap="round" fill="none" />
-          <circle cx="15" cy="20" r="3.5" fill="#fff" />
-
-          {/* Torso in flight */}
-          <path d="M 45 40 Q 65 35 85 45 Q 70 58 45 52 Z" fill="#dc2626" stroke="#090514" strokeWidth="1.5" />
-          <path d="M 55 42 Q 68 38 78 45 Q 68 52 55 48 Z" fill="#0284c7" />
-
-          {/* Head looking forward */}
-          <ellipse cx="40" cy="38" rx="14" ry="16" fill="#dc2626" stroke="#090514" strokeWidth="1.5" />
-          <path d="M 32 36 Q 38 34 38 40 Q 35 42 32 39 Z" fill="#fff" stroke="#000" strokeWidth="1.2" />
-
-          {/* Back Trailing Arm */}
-          <path d="M 75 42 Q 95 48 105 55" stroke="#dc2626" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-
-          {/* Trailing Acrobat Legs */}
-          <path d="M 82 46 Q 100 55 115 50" stroke="#0284c7" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-          <path d="M 80 50 Q 98 65 110 68" stroke="#0284c7" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-          <circle cx="115" cy="50" r="3" fill="#dc2626" />
-          <circle cx="110" cy="68" r="3" fill="#dc2626" />
-        </svg>
-
-        {/* Flying Speed Flare */}
-        <span className="mono text-[10px] font-black text-cyan-300 ml-2 px-2 py-0.5 rounded-full bg-black/80 border border-cyan-400 shadow-md">
-          ⚡ FLYING
-        </span>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-/* 3D Interactive Tilt Project Card */
+/* 3D Interactive Project Card */
 const ProjectCard = ({ project, idx, inView }) => {
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -147,8 +75,8 @@ const ProjectCard = ({ project, idx, inView }) => {
   const handleMouseMove = (e) => {
     if (!cardRef.current || window.innerWidth < 768) return;
     const rect = cardRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 16;
     setTilt({ x: -y, y: x });
     setGlare({
       x: ((e.clientX - rect.left) / rect.width) * 100,
@@ -171,31 +99,31 @@ const ProjectCard = ({ project, idx, inView }) => {
       onMouseLeave={handleMouseLeave}
       data-cursor="3d"
       data-cursor-text="VIEW"
-      style={{ perspective: '1000px', cursor: 'pointer' }}
+      style={{ perspective: '1200px' }}
       className="w-full"
     >
       <motion.div
-        initial={{ opacity: 0, y: 60, rotateX: 18, scale: 0.92 }}
-        animate={inView ? { opacity: 1, y: 0, rotateX: tilt.x, rotateY: tilt.y, scale: 1 } : { opacity: 0, y: 60, rotateX: 18, scale: 0.92 }}
-        transition={{ delay: 0.2 + idx * 0.15, duration: 0.8, type: 'spring', stiffness: 220, damping: 22 }}
-        whileHover={{ scale: 1.03, y: -8 }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0, rotateX: tilt.x, rotateY: tilt.y } : {}}
+        transition={{ delay: 0.15 + idx * 0.12, duration: 0.7 }}
+        whileHover={{ y: -6 }}
         className="relative rounded-2xl overflow-hidden group h-full flex flex-col justify-between"
         style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: hovered ? `1px solid ${project.accent}` : '1px solid rgba(239,68,68,0.2)',
+          background: 'rgba(13, 17, 26, 0.7)',
+          border: hovered ? `1px solid ${project.accent}80` : '1px solid rgba(255, 255, 255, 0.08)',
           boxShadow: hovered
-            ? `0 0 45px ${project.accent}40, 0 20px 40px rgba(0,0,0,0.7)`
-            : '0 10px 30px rgba(0,0,0,0.4)',
+            ? `0 20px 45px -10px ${project.accent}25, 0 0 1px 1px ${project.accent}40`
+            : '0 10px 30px rgba(0, 0, 0, 0.4)',
           transformStyle: 'preserve-3d',
           backdropFilter: 'blur(16px)',
           transition: 'border 0.3s ease, box-shadow 0.3s ease',
         }}
       >
-        {/* Holographic Glare Follower */}
+        {/* Specular glare */}
         <div
           className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-10"
           style={{
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, ${project.accent}25 0%, transparent 65%)`,
+            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, ${project.accent}20 0%, transparent 65%)`,
             opacity: glare.opacity,
           }}
         />
@@ -206,107 +134,94 @@ const ProjectCard = ({ project, idx, inView }) => {
           style={{ background: `linear-gradient(90deg, ${project.accent}, transparent)` }}
         />
 
-        {/* Terminal macOS Header */}
+        {/* Terminal Header */}
         <div
           className="terminal-header rounded-none justify-between px-4 py-2.5"
           style={{
-            borderBottom: '1px solid rgba(255,255,255,0.06)',
-            background: 'rgba(15,15,30,0.7)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+            background: 'rgba(10, 14, 22, 0.8)',
             transform: 'translateZ(10px)',
           }}
         >
           <div className="flex items-center gap-1.5 min-w-0">
-            <div className="terminal-dot bg-red-500" />
-            <div className="terminal-dot bg-yellow-400" />
-            <div className="terminal-dot bg-green-400" />
-            <span className="mono text-slate-500 text-[10px] sm:text-[11px] ml-2 truncate">
-              {project.title.toLowerCase().replace(/ /g, '_')}.tsx
+            <div className="terminal-dot bg-red-500/80" />
+            <div className="terminal-dot bg-amber-500/80" />
+            <div className="terminal-dot bg-emerald-500/80" />
+            <span className="mono text-slate-400 text-[11px] ml-2 truncate">
+              {project.company}
             </span>
           </div>
 
           <span
-            className="mono text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wider flex-shrink-0"
-            style={{ background: `${project.accent}20`, color: project.accent }}
+            className="mono text-[10px] px-2.5 py-0.5 rounded-full font-semibold uppercase tracking-wider flex-shrink-0"
+            style={{ background: `${project.accent}15`, color: project.accent }}
           >
             {project.stats}
           </span>
         </div>
 
         {/* Card Body */}
-        <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between" style={{ transform: 'translateZ(20px)' }}>
+        <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between" style={{ transform: 'translateZ(15px)' }}>
           <div>
-            {/* Title */}
             <h3 className="text-lg sm:text-xl font-bold text-white mb-2 tracking-tight group-hover:text-indigo-300 transition-colors">
               {project.title}
             </h3>
 
-            {/* Description */}
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4 font-light">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 font-normal">
               {project.description}
             </p>
 
-            {/* Features list */}
-            <div className="space-y-1.5 sm:space-y-2 mb-5">
+            {/* Features List */}
+            <div className="space-y-2 mb-5">
               {project.features.map((f, i) => (
-                <div key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-slate-300 mono">
-                  <FaCheckCircle className="mt-0.5 flex-shrink-0" style={{ color: project.accent }} size={10} />
-                  <span>{f}</span>
+                <div key={i} className="flex items-start gap-2.5 text-xs text-slate-300">
+                  <FaCheckCircle
+                    size={11}
+                    className="flex-shrink-0 mt-0.5"
+                    style={{ color: project.accent }}
+                  />
+                  <span className="leading-snug">{f}</span>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Technologies & Links */}
           <div>
-            {/* Tech Pills */}
-            <div className="flex flex-wrap gap-1.5 mb-5">
+            <div className="flex flex-wrap gap-1.5 mb-5 pt-3 border-t border-white/[0.06]">
               {project.technologies.map((t) => (
                 <span
                   key={t}
-                  className="mono text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-slate-300 hover:text-white transition-colors"
-                  style={{
-                    background: `${project.accent}15`,
-                    border: `1px solid ${project.accent}30`,
-                  }}
+                  className="mono text-[11px] px-2.5 py-1 rounded-lg text-slate-300 bg-white/[0.04] border border-white/[0.06] font-medium"
                 >
                   {t}
                 </span>
               ))}
             </div>
 
-            {/* Interactive Action Buttons */}
-            <div className="flex gap-2 sm:gap-3 pt-1" style={{ transform: 'translateZ(25px)' }}>
-              <motion.a
+            <div className="flex items-center gap-3">
+              <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, borderColor: 'rgba(99,102,241,0.6)' }}
-                whileTap={{ scale: 0.96 }}
                 data-cursor="button"
-                className="flex-1 flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-3 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition-all"
-                style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                }}
+                className="flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08]"
               >
                 <FaGithub size={13} />
-                <span>Source</span>
-              </motion.a>
+                <span>Source Code</span>
+              </a>
 
-              <motion.a
+              <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.04, boxShadow: `0 0 25px ${project.accent}60` }}
-                whileTap={{ scale: 0.96 }}
                 data-cursor="button"
-                className="flex-1 flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-3 rounded-xl text-xs font-semibold text-white transition-all shadow-lg"
-                style={{
-                  background: `linear-gradient(135deg, ${project.accent}, ${project.accent}dd)`,
-                }}
+                className="flex items-center gap-1.5 text-xs font-semibold text-white px-3 py-1.5 rounded-lg transition-all shadow-sm"
+                style={{ background: `linear-gradient(135deg, ${project.accent}, #6366f1)` }}
               >
-                <FaExternalLinkAlt size={11} />
-                <span>Live Demo</span>
-              </motion.a>
+                <span>Live Preview</span>
+                <FaExternalLinkAlt size={10} />
+              </a>
             </div>
           </div>
         </div>
@@ -316,96 +231,89 @@ const ProjectCard = ({ project, idx, inView }) => {
 };
 
 const Projects = () => {
-  const [filter, setFilter] = useState('all');
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: false, margin: '-60px' });
+  const [activeFilter, setActiveFilter] = useState('all');
 
-  const filtered = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
+  const filtered = activeFilter === 'all'
+    ? projects
+    : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="relative py-20 sm:py-32 overflow-hidden" style={{ background: '#040408' }}>
-      <div className="section-divider" />
+    <section id="projects" className="relative py-24 sm:py-36 overflow-hidden bg-[#07090e]">
+      <div className="section-divider mb-0" />
 
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(circle,rgba(99,102,241,0.07),transparent 70%)', filter: 'blur(80px)' }}
+          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%)', filter: 'blur(90px)' }}
         />
         <div
-          className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle,rgba(236,72,153,0.06),transparent 70%)', filter: 'blur(60px)' }}
+          className="absolute bottom-10 left-1/4 w-[450px] h-[450px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.05), transparent 70%)', filter: 'blur(90px)' }}
         />
       </div>
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        {/* ── SPIDER-MAN WEB-SWINGING & FLYING ACTION ── */}
-        <SpiderManWebFlyer inView={inView} />
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-10 sm:mb-14"
+          className="max-w-2xl mb-12 sm:mb-16"
         >
-          <p className="mono text-xs text-slate-500 tracking-[0.25em] uppercase mb-3">
-            <span className="code-comment">{'// '}</span>projects.json
+          <p className="mono text-xs text-indigo-400 tracking-[0.25em] uppercase mb-2 font-semibold">
+            {'// '}PORTFOLIO & CASE STUDIES
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight sm:tracking-tighter mb-4">
-            Featured{' '}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Featured Projects &{' '}
             <span
               style={{
-                backgroundImage: 'linear-gradient(135deg,#818cf8,#c084fc)',
+                backgroundImage: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #c084fc 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Projects
+              Enterprise Systems
             </span>
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto font-light">
-            Real production projects engineered with scalable backends, clean architecture, and modern UI.
+          <p className="text-slate-400 text-xs sm:text-sm mt-3 font-normal">
+            Real-world full-stack platforms delivering measurable business efficiency, clean asynchronous workers, and robust data integrity.
           </p>
         </motion.div>
 
-        {/* Filter tabs */}
-        <div className="flex justify-center gap-2 mb-8 sm:mb-12">
-          {filters.map((f) => (
-            <button
-              key={f.key}
-              onClick={() => setFilter(f.key)}
-              data-cursor="hover"
-              className={`mono px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center gap-2 ${
-                filter === f.key ? 'text-white shadow-lg shadow-indigo-500/25' : 'text-slate-400 hover:text-slate-200'
-              }`}
-              style={
-                filter === f.key
-                  ? { background: 'linear-gradient(135deg,#6366f1,#8b5cf6)' }
-                  : { background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }
-              }
-            >
-              <f.icon size={12} />
-              <span>{f.label}</span>
-            </button>
-          ))}
+        {/* Filter Pills */}
+        <div className="flex gap-2 mb-10 flex-wrap">
+          {filters.map((f) => {
+            const Icon = f.icon;
+            const isActive = activeFilter === f.key;
+            return (
+              <button
+                key={f.key}
+                onClick={() => setActiveFilter(f.key)}
+                data-cursor="button"
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25'
+                    : 'text-slate-400 hover:text-white bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.06]'
+                }`}
+              >
+                <Icon size={12} />
+                <span>{f.label}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* 3D Project Cards Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={filter}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-          >
-            {filtered.map((p, i) => (
-              <ProjectCard key={p.id} project={p} idx={i} inView={inView} />
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, idx) => (
+              <ProjectCard key={project.id} project={project} idx={idx} inView={inView} />
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

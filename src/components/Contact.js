@@ -1,71 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaCopy, FaCheck, FaPaperPlane } from 'react-icons/fa';
+import {
+  FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaCopy, FaCheck, FaPaperPlane, FaFileDownload
+} from 'react-icons/fa';
 import emailjs from 'emailjs-com';
-
-/* ═══════════════════════════════════════════════════════════
-   SPIDER-MAN ACTION 5: PERCHED ON ROOFTOP TRANSMITTER (CONTACT SECTION)
-═══════════════════════════════════════════════════════════ */
-const SpiderManPerched = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.7, y: 50 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: false, margin: '-60px' }}
-      transition={{ duration: 1, type: 'spring', stiffness: 240, damping: 20 }}
-      className="hidden md:flex absolute right-8 lg:right-28 top-12 z-20 flex-col items-center pointer-events-none"
-    >
-      <motion.div
-        animate={{
-          y: [0, -8, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="relative flex flex-col items-center"
-      >
-        {/* Electric Spider-Sense Radar Arcs */}
-        <div className="absolute -top-7 flex items-center gap-1">
-          <span className="text-xs text-red-500 font-bold animate-ping">⚡</span>
-          <span className="text-sm text-cyan-400 font-bold animate-bounce">⚡</span>
-          <span className="text-xs text-red-500 font-bold animate-ping">⚡</span>
-        </div>
-
-        {/* Perched Crouching Spider-Man Vector */}
-        <svg width="76" height="82" viewBox="0 0 100 120" className="drop-shadow-[0_0_24px_rgba(239,68,68,0.85)]">
-          {/* Head perched looking right at user */}
-          <ellipse cx="50" cy="40" rx="15" ry="17" fill="#dc2626" stroke="#090514" strokeWidth="2" />
-          <path d="M 50 23 L 50 57 M 35 40 L 65 40" stroke="#000" strokeWidth="1" opacity="0.6" />
-          {/* Glowing Alert Lenses */}
-          <path d="M 38 38 Q 46 35 47 42 Q 43 45 38 42 Z" fill="#fff" stroke="#000" strokeWidth="1.5" />
-          <path d="M 62 38 Q 54 35 53 42 Q 57 45 62 42 Z" fill="#fff" stroke="#000" strokeWidth="1.5" />
-
-          {/* Deep Perched Crouched Torso */}
-          <path d="M 40 55 C 34 68 38 85 50 92 C 62 85 66 68 60 55 Z" fill="#dc2626" stroke="#090514" strokeWidth="2" />
-          <path d="M 44 65 Q 42 75 49 84 Q 46 75 44 65 Z" fill="#0284c7" />
-          <path d="M 56 65 Q 58 75 51 84 Q 54 75 56 65 Z" fill="#0284c7" />
-
-          {/* Perched Arms resting on knees */}
-          <path d="M 42 58 Q 28 65 35 85" stroke="#dc2626" strokeWidth="5" strokeLinecap="round" fill="none" />
-          <path d="M 58 58 Q 72 65 65 85" stroke="#dc2626" strokeWidth="5" strokeLinecap="round" fill="none" />
-
-          {/* Perched Folded Legs */}
-          <path d="M 45 80 Q 22 85 18 105" stroke="#0284c7" strokeWidth="5.5" strokeLinecap="round" fill="none" />
-          <circle cx="18" cy="105" r="4" fill="#dc2626" />
-          <path d="M 55 80 Q 78 85 82 105" stroke="#0284c7" strokeWidth="5.5" strokeLinecap="round" fill="none" />
-          <circle cx="82" cy="105" r="4" fill="#dc2626" />
-        </svg>
-
-        {/* Perched Radar Pill */}
-        <span className="mono text-[10px] font-black text-cyan-300 px-2.5 py-0.5 rounded-full bg-black/90 border border-cyan-400 shadow-md">
-          📡 SENSE ACTIVE
-        </span>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 const Contact = () => {
   const formRef = useRef();
@@ -79,7 +17,7 @@ const Contact = () => {
   const copyToClipboard = (text, label) => {
     navigator.clipboard.writeText(text);
     setCopiedItem(label);
-    setTimeout(() => setCopiedItem(null), 2500);
+    setTimeout(() => setCopiedItem(null), 2200);
   };
 
   const handleSubmit = async (e) => {
@@ -93,7 +31,7 @@ const Contact = () => {
       setStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setStatus(null), 5000);
+      setTimeout(() => setStatus(null), 6000);
     }
   };
 
@@ -104,7 +42,7 @@ const Contact = () => {
       value: 'karthikeyancs10@gmail.com',
       copyValue: 'karthikeyancs10@gmail.com',
       href: 'mailto:karthikeyancs10@gmail.com',
-      color: '#818cf8',
+      color: '#3b82f6',
     },
     {
       Icon: FaPhone,
@@ -112,15 +50,15 @@ const Contact = () => {
       value: '+91 87780 76919',
       copyValue: '+918778076919',
       href: 'tel:+918778076919',
-      color: '#34d399',
+      color: '#10b981',
     },
     {
       Icon: FaMapMarkerAlt,
       label: 'Location',
-      value: 'Trichy, Tamil Nadu, India',
-      copyValue: 'Trichy, Tamil Nadu, India',
+      value: 'Tiruchirappalli, Tamil Nadu, India',
+      copyValue: 'Tiruchirappalli, Tamil Nadu, India',
       href: '#',
-      color: '#f472b6',
+      color: '#8b5cf6',
     },
     {
       Icon: FaLinkedin,
@@ -134,273 +72,268 @@ const Contact = () => {
       Icon: FaGithub,
       label: 'GitHub',
       value: 'github.com/karthikeyanssd',
-      copyValue: 'https://github.com',
+      copyValue: 'https://github.com/karthikeyanssd',
       href: 'https://github.com',
       color: '#e2e8f0',
     },
   ];
 
   const inputClass = `
-    w-full bg-black/40 border rounded-xl px-3.5 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-slate-200 placeholder-slate-600
-    mono outline-none transition-all duration-300 focus:border-indigo-500 focus:bg-indigo-950/20 focus:shadow-[0_0_20px_rgba(99,102,241,0.25)]
+    w-full bg-[#080b12]/90 border border-white/[0.08] rounded-xl px-4 py-3 sm:py-3.5 text-xs sm:text-sm text-slate-200 placeholder-slate-500
+    outline-none transition-all duration-300 focus:border-indigo-500 focus:bg-[#0c101c] focus:shadow-[0_0_20px_rgba(99,102,241,0.2)]
   `;
 
   return (
-    <section id="contact" className="relative py-20 sm:py-32 overflow-hidden" style={{ background: '#040408' }}>
-      <div className="section-divider" />
+    <section id="contact" className="relative py-24 sm:py-36 overflow-hidden bg-[#07090e]">
+      <div className="section-divider mb-0" />
 
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(circle,rgba(99,102,241,0.08),transparent 70%)', filter: 'blur(80px)' }}
+          className="absolute top-1/4 left-10 w-[500px] h-[500px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%)', filter: 'blur(90px)' }}
         />
         <div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle,rgba(236,72,153,0.07),transparent 70%)', filter: 'blur(80px)' }}
+          className="absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%)', filter: 'blur(90px)' }}
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        {/* ── SPIDER-MAN PERCHED ACTION ── */}
-        <SpiderManPerched />
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-12 sm:mb-16 max-w-2xl mx-auto"
         >
-          <p className="mono text-xs text-slate-500 tracking-[0.25em] uppercase mb-3">
-            <span className="code-comment">{'// '}</span>contact.ts
+          <p className="mono text-xs text-indigo-400 tracking-[0.25em] uppercase mb-2 font-semibold">
+            {'// '}GET IN TOUCH
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight sm:tracking-tighter mb-4">
-            Let's{' '}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Let's Build Something{' '}
             <span
               style={{
-                backgroundImage: 'linear-gradient(135deg,#818cf8,#c084fc)',
+                backgroundImage: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #c084fc 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Connect
+              Exceptional
             </span>
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-light">
-            Have a project in mind, an open role, or just want to chat about tech? Drop a message below.
+          <p className="text-slate-400 text-xs sm:text-sm mt-3 font-normal">
+            Whether you are looking to hire a Full Stack Developer, need technical consultation, or want to discuss a project, my inbox is open.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 lg:gap-10" style={{ perspective: '1200px' }}>
-
-          {/* ── LEFT: Interactive Contact Badges ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 lg:gap-12 items-start">
+          {/* ── LEFT: Contact Details & Resume ── */}
           <motion.div
-            initial={{ opacity: 0, x: -50, rotateY: -10 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-            viewport={{ once: false, margin: '-60px' }}
-            transition={{ delay: 0.1, duration: 0.8, type: 'spring', stiffness: 220, damping: 22 }}
-            className="space-y-3.5 sm:space-y-4"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7 }}
+            className="space-y-3.5"
           >
-            {/* Status card */}
-            <div className="terminal rounded-2xl mb-4 sm:mb-6 shadow-xl border border-red-500/20">
-              <div className="terminal-header rounded-t-2xl px-4 py-2.5">
-                <div className="terminal-dot bg-red-500" />
-                <div className="terminal-dot bg-yellow-400" />
-                <div className="terminal-dot bg-cyan-400" />
-                <span className="mono text-slate-400 text-xs ml-2">spider_status.sh</span>
-              </div>
-              <div className="p-4 sm:p-5 mono text-xs leading-5 sm:leading-6 bg-black/40">
-                <p className="flex items-center gap-2">
-                  <span className="text-red-400">🕷️ $</span>
-                  <span className="text-sky-300">check_availability</span>
-                </p>
-                <p className="mt-1 text-emerald-300">"Available for Full-Time Roles & Opportunities"</p>
-                <p className="mt-2.5 sm:mt-3 flex items-center gap-2">
-                  <span className="text-red-400">🕷️ $</span>
-                  <span className="text-sky-300">spider_sense_speed</span>
-                </p>
-                <p className="text-cyan-300">"Response within 24 hours ⚡"</p>
-              </div>
-            </div>
+            {contactInfo.map((item) => {
+              const Icon = item.Icon;
+              const isCopied = copiedItem === item.label;
 
-            {contactInfo.map(({ Icon, label, value, copyValue, href, color }) => (
-              <motion.div
-                key={label}
-                whileHover={{ x: 6, scale: 1.01, backgroundColor: 'rgba(255,255,255,0.06)' }}
-                data-cursor="hover"
-                data-cursor-text={label === 'LinkedIn' || label === 'GitHub' ? 'VISIT' : 'COPY'}
-                className="flex items-center justify-between p-3.5 sm:p-4 rounded-xl group transition-all border border-white/5 hover:border-indigo-500/40"
-                style={{ background: 'rgba(255,255,255,0.03)' }}
-              >
-                <a
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1 cursor-pointer"
+              return (
+                <div
+                  key={item.label}
+                  className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-indigo-500/35 transition-all flex items-center justify-between group backdrop-blur-md"
                 >
-                  <div
-                    className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
-                    style={{ background: `${color}20`, border: `1px solid ${color}40` }}
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : '_self'}
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3.5 min-w-0 flex-1 cursor-pointer"
                   >
-                    <Icon style={{ color }} className="text-sm sm:text-base" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="mono text-[9px] sm:text-[10px] text-slate-500 uppercase tracking-widest">{label}</p>
-                    <p className="text-slate-200 text-xs sm:text-sm font-medium truncate group-hover:text-indigo-300 transition-colors">
-                      {value}
-                    </p>
-                  </div>
-                </a>
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${item.color}15` }}
+                    >
+                      <Icon style={{ color: item.color, fontSize: 16 }} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="mono text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
+                        {item.label}
+                      </p>
+                      <p className="text-white text-xs sm:text-sm font-medium truncate group-hover:text-indigo-300 transition-colors">
+                        {item.value}
+                      </p>
+                    </div>
+                  </a>
 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    copyToClipboard(copyValue, label);
-                  }}
-                  data-cursor="button"
-                  title={`Copy ${label}`}
-                  className="p-2 rounded-lg hover:bg-white/10 text-[11px] sm:text-xs text-slate-500 hover:text-indigo-300 transition-all ml-2 flex-shrink-0 cursor-pointer"
-                >
-                  {copiedItem === label ? (
-                    <span className="flex items-center gap-1 text-emerald-400 font-bold mono">
-                      <FaCheck size={11} />
-                    </span>
-                  ) : (
-                    <FaCopy size={13} className="opacity-60 hover:opacity-100" />
+                  {item.copyValue && (
+                    <button
+                      onClick={() => copyToClipboard(item.copyValue, item.label)}
+                      data-cursor="button"
+                      data-cursor-text="COPY"
+                      title="Copy to clipboard"
+                      className="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-white/[0.06] transition-colors ml-2"
+                    >
+                      {isCopied ? (
+                        <FaCheck size={12} className="text-emerald-400" />
+                      ) : (
+                        <FaCopy size={12} />
+                      )}
+                    </button>
                   )}
-                </button>
-              </motion.div>
-            ))}
+                </div>
+              );
+            })}
+
+            {/* Quick Resume Card */}
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-indigo-950/40 to-blue-950/20 border border-indigo-500/30 backdrop-blur-md">
+              <div className="flex items-center justify-between mb-2">
+                <span className="mono text-[10px] text-indigo-300 uppercase font-bold tracking-wider">
+                  Curriculum Vitae
+                </span>
+                <span className="flex items-center gap-1.5 mono text-[10px] text-emerald-400 font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Updated 2026
+                </span>
+              </div>
+              <p className="text-white text-xs leading-relaxed mb-4 font-normal">
+                Looking for a detailed breakdown of my tech stack, company history, and key projects?
+              </p>
+              <a
+                href="/resume.pdf"
+                download="Karthikeyan_S_Resume.pdf"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-xs text-white bg-indigo-600 hover:bg-indigo-500 transition-all shadow-md shadow-indigo-600/30 cursor-pointer"
+              >
+                <FaFileDownload size={12} />
+                <span>Download Resume (PDF)</span>
+              </a>
+            </div>
           </motion.div>
 
-          {/* ── RIGHT: Interactive Terminal Form ── */}
+          {/* ── RIGHT: Direct Message Form ── */}
           <motion.div
-            initial={{ opacity: 0, x: 50, rotateY: 10 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-            viewport={{ once: false, margin: '-60px' }}
-            transition={{ delay: 0.2, duration: 0.8, type: 'spring', stiffness: 220, damping: 22 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7 }}
+            className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl shadow-2xl relative"
           >
-            <div className="terminal rounded-2xl shadow-2xl">
-              <div className="terminal-header rounded-t-2xl px-4 py-2.5">
-                <div className="terminal-dot bg-red-500" />
-                <div className="terminal-dot bg-yellow-400" />
-                <div className="terminal-dot bg-green-400" />
-                <span className="mono text-slate-500 text-xs ml-2">send_message.ts</span>
+            <h3 className="text-xl font-bold text-white mb-1 tracking-tight">
+              Send a Direct Message
+            </h3>
+            <p className="text-slate-400 text-xs sm:text-sm mb-6 font-normal">
+              Fill in your details below and I will reply within 24 hours.
+            </p>
+
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block mono text-[11px] text-slate-400 mb-1.5 font-medium">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. Alex Morgan"
+                    className={inputClass}
+                  />
+                </div>
+
+                <div>
+                  <label className="block mono text-[11px] text-slate-400 mb-1.5 font-medium">
+                    Your Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="alex@company.com"
+                    className={inputClass}
+                  />
+                </div>
               </div>
 
-              <div className="p-4 sm:p-6 md:p-8">
-                {/* Status Alert */}
-                <AnimatePresence>
-                  {status && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10, height: 0 }}
-                      animate={{ opacity: 1, y: 0, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className={`mb-6 p-3 sm:p-4 rounded-xl mono text-xs sm:text-sm ${
-                        status === 'success'
-                          ? 'text-emerald-400 bg-emerald-400/10 border border-emerald-400/30'
-                          : 'text-rose-400 bg-rose-400/10 border border-rose-400/30'
-                      }`}
-                    >
-                      {status === 'success'
-                        ? '✅ Message sent successfully! I will reply within 24 hours.'
-                        : '❌ Failed to send message. Please reach out directly at karthikeyancs10@gmail.com'}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div>
+                <label className="block mono text-[11px] text-slate-400 mb-1.5 font-medium">
+                  Subject *
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Full Stack Developer Opportunity / Project Inquiry"
+                  className={inputClass}
+                />
+              </div>
 
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
-                    <div>
-                      <label className="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest block mb-1.5 sm:mb-2">
-                        Your Name <span className="text-indigo-400">*</span>
-                      </label>
-                      <input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        placeholder="Karthi Keyan"
-                        className={inputClass}
-                        style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-                      />
-                    </div>
-                    <div>
-                      <label className="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest block mb-1.5 sm:mb-2">
-                        Your Email <span className="text-indigo-400">*</span>
-                      </label>
-                      <input
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        placeholder="karthi@example.com"
-                        className={inputClass}
-                        style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-                      />
-                    </div>
-                  </div>
+              <div>
+                <label className="block mono text-[11px] text-slate-400 mb-1.5 font-medium">
+                  Message *
+                </label>
+                <textarea
+                  name="message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Describe your project, timeline, or open role requirements..."
+                  className={`${inputClass} resize-none`}
+                />
+              </div>
 
-                  <div>
-                    <label className="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest block mb-1.5 sm:mb-2">
-                      Subject
-                    </label>
-                    <input
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      placeholder="Project Opportunity / Collaboration / Inquiry"
-                      className={inputClass}
-                      style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest block mb-1.5 sm:mb-2">
-                      Message <span className="text-indigo-400">*</span>
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      placeholder="Tell me about your project goals, scope, timeline, or requirements..."
-                      className={`${inputClass} resize-none`}
-                      style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-                    />
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    whileHover={{ scale: 1.02, boxShadow: '0 0 35px rgba(239,68,68,0.7), 0 0 15px rgba(14,165,233,0.4)' }}
-                    whileTap={{ scale: 0.98 }}
-                    data-cursor="button"
-                    className="w-full py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm text-white flex items-center justify-center gap-2 shadow-xl cursor-pointer disabled:opacity-60 transition-all"
-                    style={{ background: 'linear-gradient(135deg,#ef4444,#dc2626)' }}
+              {/* Status Message */}
+              <AnimatePresence>
+                {status === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs flex items-center gap-2"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}>
-                          ⟳
-                        </motion.span>
-                        <span>Shooting Web Payload...</span>
-                      </>
-                    ) : (
-                      <>
-                        <FaPaperPlane size={13} />
-                        <span>Shoot Message 🕸️</span>
-                      </>
-                    )}
-                  </motion.button>
-                </form>
-              </div>
-            </div>
+                    <FaCheck className="text-emerald-400" />
+                    <span>Your message has been dispatched successfully! I will be in touch shortly.</span>
+                  </motion.div>
+                )}
+
+                {status === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="p-3.5 rounded-xl bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2"
+                  >
+                    <span>Failed to transmit message. Please email me directly at karthikeyancs10@gmail.com</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                data-cursor="button"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white shadow-lg shadow-indigo-600/30 transition-all cursor-pointer disabled:opacity-60"
+                style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)' }}
+              >
+                {isSubmitting ? (
+                  <span>Transmitting...</span>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <FaPaperPlane size={11} />
+                  </>
+                )}
+              </button>
+            </form>
           </motion.div>
         </div>
       </div>
